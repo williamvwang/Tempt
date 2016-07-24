@@ -1,0 +1,29 @@
+{
+  "name": "Tempt",
+  "version": "0.0.1",
+  "description": "A Facebook messenger bot for coordinating online gaming",
+  "engines": {
+    "node": "4.4.5"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./public/js/bot.js"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "facebook-chat-api": "^1.1.0",
+    "prompt": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/renxinhe/facebook-chat-bot"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express",
+    "facebook-chat-api",
+    "facebook-bot"
+  ],
+  "license": "MIT"
+}
