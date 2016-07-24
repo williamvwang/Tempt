@@ -42,7 +42,7 @@ __Arguments__
 
 __Example__
 
->`@csgo tempted`
+>`@csgo untempt`
 
 *William Wang is no longer tempted to play CSGO.*
 
@@ -64,9 +64,9 @@ __Arguments__
 __Example__
 
 >`@csgo who`
-* One tempted
-*William Wang is tempted to play CSGO.*
-* 2+ tempted
-*William Wang, Michael Li are tempted to play CSGO.*
-* None tempted
-*No one is tempted to play CSGO in this thread.*
+* One tempted\
+*William Wang is tempted to play CSGO.*\
+* 2+ tempted\
+*William Wang, Michael Li are tempted to play CSGO.*\
+* None tempted\
+*No one is tempted to play CSGO in this thread.*\
