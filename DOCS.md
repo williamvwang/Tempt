@@ -1,91 +1,72 @@
-# Usage
-* [`color`](#color)
-* [`meme`](#meme)
-* [`weather`](#weather)
+# Tempt Docs
+* [`tempted`](#tempted)
+* [`untempt`](#untempt)
+* [`who`](#who)
 
 --------------------------------------------------
-<a name="color"/>
+<a name="tempted"/>
 
-## @color
+## @{gameName} tempted
 
-This trigger can set the color of a chat thread.
+This command registers the sender as tempted to play __{gameName}__ in the current thread.
+Currently, tempts auto-expire after 10 minutes. In the future this will be customizable.
 
 __Usage__
 
-`@color <RGB Hex>`
+`@{gameName} tempted`
 
 __Arguments__
 
-* `RGB Hex`: A six digit hexadecimal number representing the target color. Both upper and lower cases are supported.
+* `{gameName}`: The name of the game to be tempted with.
 
 __Example__
 
->`@color #0084FF`
+>`@csgo tempted`
 
-*This will set the chat thread color to Facebook messenger blue.*
+*William Wang is tempted to play CSGO.*
 
 --------------------------------------------------
-<a name="meme"/>
+<a name="untempt"/>
 
-## @meme
+## @{gameName} untempt
 
-This sends the thread a [rickroll YouTube link](https://www.youtube.com/watch?v=dQw4w9WgXcQ).
-
-[![Never Gonna Give You Up](http://img.youtube.com/vi/dQw4w9WgXcQ/0.jpg)](http://www.youtube.com/watch?v=dQw4w9WgXcQ)
+This command unregisters the sender from being tempted to play __{gameName}__ in the current thread if they are currently tempted.
 
 __Usage__
 
-`@meme`
+`@{gameName} untempt`
 
 __Arguments__
 
-None
+* `{gameName}`: The name of the game to untempt from.
 
 __Example__
 
->`@meme`
+>`@csgo tempted`
 
->https://www.youtube.com/watch?v=dQw4w9WgXcQ
-
-
-*Never gonna give you up, never gonna let you down. Never gonna run around and desert you. Never gonna make you cry, never gonna say goodbye. Never gonna tell a lie and hurt you…*
+*William Wang is no longer tempted to play CSGO.*
 
 --------------------------------------------------
-<a name="weather"/>
+<a name="who"/>
 
-## @weather
+## @{gameName} who
 
-This posts weather information of a given location.
+This gives a list of the players in the current thread who are currently tempted to play __{gameName}__.
 
 __Usage__
 
-`@weather <zipcode | location name>`
+`@{gameName} who`
 
 __Arguments__
 
-* `zipcode`: A five digit US zipcode.
-* `location name`: A letter and space only location name, or city name and state separated by a comma and a space.
+* `{gameName}`: The name of the game to list tempted players of.
 
 __Example__
 
->`@weather 94158`
-
->It is currently 63°F and Mostly Sunny in San Francisco, CA.\
-It feels like 63°F outside. Relative humidity is 75%.\
-Here's your 5-day forecast:\
-2016-07-21 | Low: 53, High: 69. Precipitation: %\
-2016-07-22 | Low: 56, High: 70. Precipitation: 0%\
-2016-07-23 | Low: 55, High: 72. Precipitation: 0%\
-2016-07-24 | Low: 57, High: 73. Precipitation: 0%\
-2016-07-25 | Low: 56, High: 71. Precipitation: 40%
-
->`@weather New York, NY`
-
->It is currently 89°F and Mostly Sunny in New York, NY.\
-It feels like 94°F outside. Relative humidity is 55%.\
-Here's your 5-day forecast:\
-2016-07-21 | Low: 74, High: 89. Precipitation: %\
-2016-07-22 | Low: 82, High: 90. Precipitation: 10%\
-2016-07-23 | Low: 79, High: 98. Precipitation: 10%\
-2016-07-24 | Low: 82, High: 91. Precipitation: 0%\
-2016-07-25 | Low: 82, High: 94. Precipitation: 60%
+>`@csgo who`
+* One tempted
+*William Wang is tempted to play CSGO.*
+* 2+ tempted
+*William Wang, Michael Li are tempted to play CSGO.*
+* None tempted
+*No one is tempted to play CSGO in this thread.*

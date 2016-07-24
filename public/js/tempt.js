@@ -77,7 +77,7 @@ var deleteTempt = function(api, threadID, message, senderID) {
     var snapshot = tempts[threadID].games[gameName].getTempt(senderID);
     tempts[threadID].games[gameName].deleteTempt(senderID);
     var isTempted = tempts[threadID].games[gameName].getTempted();
-    toSend += snapshot.displayName + ' is not tempted to play ' + gameName + ' anymore.';
+    toSend += snapshot.displayName + ' is no longer tempted to play ' + gameName + '.';
   } else {
     toSend = 'You are not tempted.';
   }
