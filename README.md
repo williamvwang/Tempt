@@ -17,9 +17,9 @@ heroku local
 
 -----------------------------------------------------------
 ## Usage:
-* `@{gameName}` tempted
-* `@{gameName}` untempt
-* `@{gameName}` who
+* `@{gameName} tempted`
+* `@{gameName} untempt`
+* `@{gameName} who`
 
 -----------------------------------------------------------
 ## Versions
