@@ -45,7 +45,7 @@ var addTempt = function(api, threadID, message, senderID) {
     tempts[threadID].games[gameName].addTempt(senderID, new Tempt(senderID, data.name));
 
     // Generate human readable message
-    var toSend = data.name + ' is tempted to play ' + gameName + '.';
+    var toSend = data.name + ' is now tempted to play ' + gameName + '.';
     
     api.sendMessage(toSend, threadID);
   });
@@ -59,7 +59,8 @@ var getTempted = function(api, threadID, message) {
 
     var isTempted = tempts[threadID].games[gameName].getTempted();
     if (isTempted.length > 0) {
-      api.sendMessage(formatTempted(isTempted), threadID);
+      var toSend = 'Tempted to play ' + gameName + ':\n';
+      api.sendMessage(toSend + formatTempted(isTempted), threadID);
     } else {
       api.sendMessage('No one is tempted to play ' + gameName + ' in this thread.', threadID);
     }
@@ -96,13 +97,9 @@ exports.deleteTempt = deleteTempt;
 function formatTempted(temptedArray) {
   var builder = '';
   if (temptedArray.length > 0) {
-    builder += temptedArray.join(', ');
-    if (temptedArray.length === 1) {
-      builder += ' is';
-    } else {
-      builder += ' are';
-    }
-    builder += ' tempted.';
+    temptedArray.forEach(function(value, index) {
+      builder += (index + 1) + '. ' + value + '\n';
+    })
     return builder;
   } else {
     return '';
