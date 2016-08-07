@@ -1,6 +1,6 @@
 var prompt = require('prompt');
 var login = require('facebook-chat-api');
-var tempt = require('./tempt.js');
+var TemptHandler = require('./TemptHandler.js');
 
 // Reading user login info
 if (process.env.USE_CLI === 'true') {
@@ -27,8 +27,8 @@ if (process.env.USE_CLI === 'true') {
 			return console.error(err);
 		}
 		email = result.email;
-		login({email: result.email, password: result.password}, 
-			{selfListen: true}, 
+		login({email: result.email, password: result.password},
+			{selfListen: true},
 			function(err, api) {
 				if (err) {
 					return console.error(err);
@@ -42,8 +42,8 @@ if (process.env.USE_CLI === 'true') {
 	});
 } else {
 	email = process.env.BOT_EMAIL;
-	login({email: process.env.BOT_EMAIL, password: process.env.BOT_PASSWORD}, 
-		{selfListen: true}, 
+	login({email: process.env.BOT_EMAIL, password: process.env.BOT_PASSWORD},
+		{selfListen: true},
 		function(err, api) {
 			if (err) {
 				return console.error(err);
@@ -78,11 +78,11 @@ function messageHandler(event) {
 		// Handle game tempt (Min 3 participants) (event.isGroup)
 		if ((/^@(\w+) tempted$/).test(message)) {
 			console.log(message);
-			tempt.addTempt(userAPI, event.threadID, message, event.senderID);
+			TemptHandler.addTempt(userAPI, event.threadID, message, event.senderID);
 		} else if ((/^@(\w+) who$/).test(message)) {
-			tempt.getTempted(userAPI, event.threadID, message);
+			TemptHandler.getTempted(userAPI, event.threadID, message);
 		} else if ((/^@(\w+) untempt$/).test(message)) {
-			tempt.deleteTempt(userAPI, event.threadID, message, event.senderID);
+			TemptHandler.deleteTempt(userAPI, event.threadID, message, event.senderID);
 		}
 		// TODO: add more handlers
 	}
