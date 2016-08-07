@@ -1,6 +1,6 @@
 var prompt = require('prompt');
 var login = require('facebook-chat-api');
-var TemptHandler = require('./TemptHandler.js');
+var gameModules = require('./games');
 
 // Reading user login info
 if (process.env.USE_CLI === 'true') {
@@ -76,14 +76,23 @@ function messageHandler(event) {
 
 	if (message != null) {
 		// Handle game tempt (Min 3 participants) (event.isGroup)
-		if ((/^@(\w+) tempted$/).test(message)) {
-			console.log(message);
-			TemptHandler.addTempt(userAPI, event.threadID, message, event.senderID);
-		} else if ((/^@(\w+) who$/).test(message)) {
-			TemptHandler.getTempted(userAPI, event.threadID, message);
-		} else if ((/^@(\w+) untempt$/).test(message)) {
-			TemptHandler.deleteTempt(userAPI, event.threadID, message, event.senderID);
+		var matches;
+		if ((matches = /^@(\w+) (\w+))$/.exec(message)) !== null) {
+			var game = matches[1].toLowerCase();
+			if (game in gameModules.modules) {
+				// give control to csgo.js
+			} else {
+				// send msg to js api
+			}
 		}
+		// if ((/^@(\w+) tempted$/).test(message)) {
+		// 	console.log(message);
+		// 	TemptHandler.addTempt(userAPI, event.threadID, message, event.senderID);
+		// } else if ((/^@(\w+) who$/).test(message)) {
+		// 	TemptHandler.getTempted(userAPI, event.threadID, message);
+		// } else if ((/^@(\w+) untempt$/).test(message)) {
+		// 	TemptHandler.deleteTempt(userAPI, event.threadID, message, event.senderID);
+		// }
 		// TODO: add more handlers
 	}
 }
