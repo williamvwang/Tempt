@@ -95,8 +95,8 @@ exports.deleteTempt = deleteTempt;
 function formatTempted(temptedArray) {
   var builder = '';
   if (temptedArray.length > 0) {
-    temptedArray.forEach(function(value, index) {
-      builder += (index + 1) + '. ' + value + '\n';
+    temptedArray.forEach(function(tempt, index) {
+      builder += (index + 1) + '. ' + tempt.display() + '\n';
     })
     return builder;
   } else {

@@ -19,6 +19,10 @@ var Tempt = function(userID, userName) {
   this.userID = userID;
   this.displayName = userName;
   // this.nickname = nickname;
+
+  this.display = function() {
+      return this.displayName;
+  };
 }
 
 // Exports
