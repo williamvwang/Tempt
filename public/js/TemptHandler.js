@@ -18,23 +18,7 @@ var tempts = {};
 
 // Functions
 
-var addTempt = function(api, threadID, message, senderID) {
-  var gameName = message.split(' ')[0].toUpperCase().substring(1); // e.g. @csgo tempted => CSGO
-
-  var temptThread = tempts[threadID];
-  // Thread level
-  if (temptThread == null) {
-    // Create new Thread object if needed
-    temptThread = new Thread(threadID);
-  }
-
-  // TODO: use var alias for tempts[threadID].games[gameName], e.g. var accumulator = ...
-  // Accumulator level
-  if (temptThread.games[gameName] == null) {
-    // Set value of key gameName to new Accumulator
-    temptThread.games[gameName] = new Game(gameName);
-  }
-
+var addTempt = function(game, api, threadID, senderID) {
   // Get user info
   api.getUserInfo(senderID, function(err, response) {
     if (err) {console.log(error);}
@@ -42,31 +26,23 @@ var addTempt = function(api, threadID, message, senderID) {
     var data = response[senderID.toString()];
 
     // Tempt level
-    temptThread.addTempt(gameName, senderID, new Tempt(senderID, data.name));
+    game.addTempt(senderID, new Tempt(senderID, data.name));
 
     // Generate human readable message
-    var toSend = data.name + ' is now tempted to play ' + gameName + '.';
+    var toSend = data.name + ' is now tempted to play ' + game.name + '.';
 
     api.sendMessage(toSend, threadID);
   });
-  tempts[threadID] = temptThread;
 }
 
-var getTempted = function(api, threadID, message) {
-  var gameName = message.split(' ')[0].toUpperCase().substring(1);
-
-  if (tempts[threadID] != null) {
-
-    var isTempted = tempts[threadID].getWhoTempted(gameName);
+var getTempted = function(game, api, threadID) {
+    var isTempted = game.getTempted();
     if (isTempted.length > 0) {
-      var toSend = 'Tempted to play ' + gameName + ':\n';
-      api.sendMessage(toSend + formatTempted(isTempted), threadID);
+        var toSend = 'Tempted to play ' + game.name + ':\n';
+        api.sendMessage(toSend + formatTempted(isTempted), threadID);
     } else {
-      api.sendMessage('No one is tempted to play ' + gameName + ' in this thread.', threadID);
+        api.sendMessage('No one is tempted to play ' + game.name + ' in this thread.', threadID);
     }
-  } else {
-    api.sendMessage(gameName + ' is not active in this thread.', threadID);
-  }
 }
 
 var deleteTempt = function(api, threadID, message, senderID) {

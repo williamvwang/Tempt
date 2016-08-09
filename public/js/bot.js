@@ -1,6 +1,8 @@
 var prompt = require('prompt');
 var login = require('facebook-chat-api');
 var gameModules = require('./games');
+var thread = require('./Thread.js');
+var Thread = thread.Thread;
 
 // Reading user login info
 if (process.env.USE_CLI === 'true') {
@@ -71,19 +73,33 @@ function listenerCallback(err, event) {
 	}
 }
 
+var threads = {};
+
 function messageHandler(event) {
 	var message = event.body;
 
 	if (message != null) {
 		// Handle game tempt (Min 3 participants) (event.isGroup)
 		var matches;
-		if ((matches = /^@(\w+) (\w+))$/.exec(message)) !== null) {
+		if ((matches = /^@(\w+) (\w+)$/.exec(message)) !== null) {
 			var game = matches[1].toLowerCase();
-			if (game in gameModules.modules) {
-				// give control to csgo.js
+			var cmd = matches[2].toLowerCase();
+
+			var thread = threads[event.threadID];
+			if (thread == null) {
+				thread = new Thread(event.threadID);
+			}
+
+			if (game in gameModules) {
+				// give control to the game
+				// assume new instance of game
+				var newGame = new gameModules[game]();
+				thread.exec(newGame, cmd, userAPI, event.senderID);
 			} else {
 				// send msg to js api
 			}
+
+			threads[event.threadID] = thread;
 		}
 		// if ((/^@(\w+) tempted$/).test(message)) {
 		// 	console.log(message);

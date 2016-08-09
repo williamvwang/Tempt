@@ -1,5 +1,3 @@
-var csgo = require('./csgo.js');
-
-exports.modules = {
-        'csgo': csgo
+module.exports = {
+        'csgo': require('./csgo.js').csgo
 };
