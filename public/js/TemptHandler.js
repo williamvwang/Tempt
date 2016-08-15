@@ -36,27 +36,25 @@ var addTempt = function(game, api, threadID, senderID) {
 }
 
 var getTempted = function(game, api, threadID) {
-    var isTempted = game.getTempted();
-    if (isTempted.length > 0) {
-        var toSend = 'Tempted to play ' + game.name + ':\n';
-        api.sendMessage(toSend + formatTempted(isTempted), threadID);
-    } else {
-        api.sendMessage('No one is tempted to play ' + game.name + ' in this thread.', threadID);
-    }
+  var isTempted = game.getTempted();
+  if (isTempted.length > 0) {
+      var toSend = 'Tempted to play ' + game.name + ':\n';
+      api.sendMessage(toSend + formatTempted(isTempted), threadID);
+  } else {
+      api.sendMessage('No one is tempted to play ' + game.name + ' in this thread.', threadID);
+  }
 }
 
-var deleteTempt = function(api, threadID, message, senderID) {
-  var gameName = message.split(' ')[0].toUpperCase().substring(1);
-
+var deleteTempt = function(game, api, threadID, senderID) {
+  var gameName = game.name;
   var toSend = '';
 
-  if (tempts[threadID].games[gameName].containsUser(senderID)) {
-    var snapshot = tempts[threadID].deleteTempt(gameName, senderID);
-    toSend += snapshot.displayName + ' is no longer tempted to play ' + gameName + '.';
-  } else {
-    toSend = 'You are not tempted.';
+  var snapshot = game.deleteTempt(senderID);
+  if (snapshot === false) {
+    toSend = 'You are not tempted to play ' + gameName + '.';
+  } else if (snapshot != null) {
+    toSend = snapshot.displayName + ' is no longer tempted to play ' + gameName + '.';
   }
-
   api.sendMessage(toSend, threadID);
 }
 

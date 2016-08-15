@@ -24,6 +24,9 @@ var csgo = function() {
             case 'tempted':
                 TemptHandler.addTempt(this.game, api, threadId, senderId);
                 break;
+            case 'untempt':
+            	TemptHandler.deleteTempt(this.game, api, threadId, senderId);
+            	break;
             case 'who':
                 TemptHandler.getTempted(this.game, api, threadId);
                 break;

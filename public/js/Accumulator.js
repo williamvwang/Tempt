@@ -29,10 +29,16 @@ var Accumulator = function(gameName) {
   };
 
   this.deleteTempt = function(userID) {
-    this.cleanExpired();
-    delete this.tempted[userID];
-    this.modified();
-    console.log('deleted tempt for ', userID);
+    if (this.containsUser(userID)) {
+      var deleted = this.tempted[userID];
+      delete this.tempted[userID];
+      this.modified();
+      console.log('deleted tempt for ', userID);
+      return deleted;
+    } else {
+      console.log('did not find/delete tempt for', userID);
+      return false;
+    }    
   };
 
   this.containsUser = function(userID) {

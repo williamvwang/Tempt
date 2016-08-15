@@ -20,7 +20,7 @@ var Game = function(gameName) {
     }
 
     this.deleteTempt = function(userId) {
-        this.accumulator.deleteTempt(userId);
+        return this.accumulator.deleteTempt(userId);
     }
 };
 
