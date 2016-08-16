@@ -81,9 +81,10 @@ function messageHandler(event) {
 	if (message != null) {
 		// Handle game tempt (Min 3 participants) (event.isGroup)
 		var matches;
-		if ((matches = /^@(\w+) (\w+)$/.exec(message)) !== null) {
+		if ((matches = /^@(\w+) (\w+)( [\w ]+)?$/.exec(message)) !== null) {
 			var game = matches[1].toLowerCase();
 			var cmd = matches[2].toLowerCase();
+			var args = matches[3];
 
 			var thread = threads[event.threadID];
 			if (thread == null) {
@@ -94,7 +95,7 @@ function messageHandler(event) {
 				// give control to the game
 				// assume new instance of game
 				var newGame = new gameModules[game]();
-				thread.exec(newGame, cmd, userAPI, event.senderID);
+				thread.exec(newGame, cmd, args, userAPI, event.senderID);
 			} else {
 				// send msg to js api
 			}

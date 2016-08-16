@@ -19,7 +19,7 @@ var csgo = function() {
     this.game = new Game(this.name);
     this.gameId = 730;
 
-    this.exec = function(command, api, threadId, senderId) {
+    this.exec = function(command, args, api, threadId, senderId) {
         switch(command) {
             case 'tempted':
                 TemptHandler.addTempt(this.game, api, threadId, senderId);
