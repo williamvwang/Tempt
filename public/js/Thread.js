@@ -11,14 +11,14 @@ var Thread = function(threadID) {
   this.threadID = threadID;
   this.games = {};
 
-  this.exec = function(game, command, api, senderId) {
+  this.exec = function(game, command, args, api, senderId) {
       if (game.name in this.games) {
           game = this.games[game.name];
       } else {
           this.games[game.name] = game;
       }
 
-      game.exec(command, api, this.threadID, senderId);
+      game.exec(command, args, api, this.threadID, senderId);
   };
 };
 
