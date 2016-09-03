@@ -17,10 +17,12 @@ heroku local
 
 -----------------------------------------------------------
 ## Usage:
-* [`@{gameName} tempted`](DOCS.md#tempted)
-* [`@{gameName} untempt`](DOCS.md#untempt)
-* [`@{gameName} who`](DOCS.md#who)
+* [`@csgo tempted`](DOCS.md#tempted)
+* [`@csgo untempt`](DOCS.md#untempt)
+* [`@csgo who`](DOCS.md#who)
 
 -----------------------------------------------------------
 ## Versions
 - 0.0.1: Initial framework.
+- 0.1: Refactored code
+- 1.0: Initial release with just a CS:GO client
