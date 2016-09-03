@@ -15,7 +15,7 @@ var exports = module.exports = {};
 
 var Tempt = function(userID, userName) {
   this.timeCreated = Date.now();
-  this.timeExpires = this.timeCreated + 10 * 60 * 1000; // 10 minute expiry
+  this.timeExpires = this.timeCreated + 1 * 60 * 60 * 1000; // 8 hour expiry
   this.userID = userID;
   this.displayName = userName;
   // this.nickname = nickname;
