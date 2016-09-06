@@ -1,6 +1,7 @@
 var prompt = require('prompt');
 var login = require('facebook-chat-api');
 var gameModules = require('./games');
+var activityModules = require('./activities');
 var thread = require('./Thread.js');
 var Thread = thread.Thread;
 
@@ -81,7 +82,7 @@ function messageHandler(event) {
 	if (message != null) {
 		// Handle game tempt (Min 3 participants) (event.isGroup)
 		var matches;
-		if ((matches = /^@(\w+) (\w+)( [\w ]+)?$/.exec(message)) !== null) {
+		if ((matches = /^@(\w+) (\w+)( .+)?$/.exec(message)) !== null) {
 			var game = matches[1].toLowerCase();
 			var cmd = matches[2].toLowerCase();
 			var args = matches[3];
@@ -95,10 +96,11 @@ function messageHandler(event) {
 				// give control to the game
 				// assume new instance of game
 				var newGame = new gameModules[game]();
-				thread.exec(newGame, cmd, args, userAPI, event.senderID);
-			} else {
+			} else if (game in activityModules) {
 				// send msg to js api
+				var newGame = new activityModules[game]();
 			}
+			thread.exec(newGame, cmd, args, userAPI, event.senderID);
 
 			threads[event.threadID] = thread;
 		}
