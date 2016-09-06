@@ -17,12 +17,22 @@ heroku local
 
 -----------------------------------------------------------
 ## Usage:
-* [`@csgo tempted`](DOCS.md#tempted)
-* [`@csgo untempt`](DOCS.md#untempt)
-* [`@csgo who`](DOCS.md#who)
+
+### CSGO: 
+> * [`@csgo tempted`](DOCS.md#tempted)
+> * [`@csgo untempt`](DOCS.md#untempt)
+> * [`@csgo who`](DOCS.md#who)
+
+### Food:
+> * [`@food tempted`](DOCS.md#tempted)
+> * [`@food untempt`](DOCS.md#untempt)
+> * [`@food who`](DOCS.md#who)
+> * [`@food at (place)`](DOCS.md#at)
+> * [`@food where`](DOCS.md#where)
 
 -----------------------------------------------------------
 ## Versions
 - 0.0.1: Initial framework.
 - 0.1: Refactored code
 - 1.0: Initial release with just a CS:GO client
+- 1.1: Release with food capabilities
