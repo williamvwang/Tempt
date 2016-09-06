@@ -2,6 +2,7 @@
 * [`tempted`](#tempted)
 * [`untempt`](#untempt)
 * [`who`](#who)
+* [`at (place)`](#at)
 
 --------------------------------------------------
 <a name="tempted"/>
@@ -70,3 +71,45 @@ __Example__
 *William Wang is tempted to play CSGO.*
 * 2+ tempted:
 *William Wang, Michael Li are tempted to play CSGO.*
+
+--------------------------------------------------
+<a name="at"/>
+
+## @{activity} at {place}
+
+This gives the place where the activity is happening
+
+__Usage__
+
+`@{activity} at {place}`
+
+__Arguments__
+
+* `{place}`: The place where we want to do the activity
+
+__Example__
+
+>`@food at kismet`
+* Food is now at kismet
+
+--------------------------------------------------
+<a name="where"/>
+
+## @{activity} where
+
+This gives the place where the activity is happening
+
+__Usage__
+
+`@{activity} where`
+
+__Arguments__
+
+* `{activity}`: The activity to do
+
+__Example__
+
+>`@food at kismet`
+* Food is now at kismet
+>`@food where`
+* Food at kismet
