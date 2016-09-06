@@ -11,11 +11,8 @@ var food = function() {
 
     this.setPlace = function(api, threadId, where) { // maybe implement some voting system
         where = where.trim();
-        var whereArray = where.split(' ');
-        if (whereArray.length === 1) {
-            this.place = whereArray[0];
-            api.sendMessage('Food is now at ' + this.place, threadId);
-        }
+        this.place = where;
+        api.sendMessage('Food is now at ' + this.place, threadId);
     };
 
     this.getPlace = function(api, threadId) {

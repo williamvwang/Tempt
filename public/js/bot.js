@@ -82,7 +82,7 @@ function messageHandler(event) {
 	if (message != null) {
 		// Handle game tempt (Min 3 participants) (event.isGroup)
 		var matches;
-		if ((matches = /^@(\w+) (\w+)( [\w ]+)?$/.exec(message)) !== null) {
+		if ((matches = /^@(\w+) (\w+)( .+)?$/.exec(message)) !== null) {
 			var game = matches[1].toLowerCase();
 			var cmd = matches[2].toLowerCase();
 			var args = matches[3];
