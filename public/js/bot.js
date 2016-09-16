@@ -92,17 +92,23 @@ function messageHandler(event) {
 				thread = new Thread(event.threadID);
 			}
 
+            var validActivity = false;
 			if (game in gameModules) {
 				// give control to the game
 				// assume new instance of game
 				var newGame = new gameModules[game]();
+                validActivity = true;
 			} else if (game in activityModules) {
 				// send msg to js api
 				var newGame = new activityModules[game]();
+                validActivity = true;
 			}
-			thread.exec(newGame, cmd, args, userAPI, event.senderID);
+            
+            if (validActivity) {
+			    thread.exec(newGame, cmd, args, userAPI, event.senderID);
 
-			threads[event.threadID] = thread;
+			    threads[event.threadID] = thread;
+            }
 		}
 		// if ((/^@(\w+) tempted$/).test(message)) {
 		// 	console.log(message);
