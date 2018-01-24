@@ -1,7 +1,7 @@
 # Tempt
 **A Facebook messenger bot for coordinating social activities!**
 
-Online gaming, food runs, homework... Tempt is a lightweight and convenient tool for all your social coordination needs! See who's tempted to do what and where with just a few keystrokes. Utilizing your existing Facebook group chats for natural integration into your most relevant social circles, Tempt puts the power of _ right at your fingertips.
+Online gaming, food runs, homework... Tempt is a lightweight and convenient tool for all your social coordination needs! See who's tempted to do what and where with just a few keystrokes. Utilizing your existing Facebook group chats for natural integration into your most relevant social circles, Tempt puts the power of seamless coordination right at your fingertips.
 
 Tempt runs on the Node.js platform. It uses [facebook-chat-api](https://github.com/Schmavery/facebook-chat-api) as the main component. The bot latches onto a Facebook account, and listens to all incoming messages for triggers. User can add the bot to any group chat, or simply message the bot to see its response.
 
