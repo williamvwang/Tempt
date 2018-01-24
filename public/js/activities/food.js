@@ -12,14 +12,14 @@ var food = function() {
     this.setPlace = function(api, threadId, where) { // maybe implement some voting system
         where = where.trim();
         this.place = where;
-        api.sendMessage('Food is now at ' + this.place, threadId);
+        api.sendMessage('Food is now at ' + this.place + '.', threadId);
     };
 
     this.getPlace = function(api, threadId) {
         if (this.place === null) {
-            api.sendMessage('Nowhere... yet', threadId);
+            api.sendMessage('Nowhere... yet!', threadId);
         } else {
-            api.sendMessage('Food at ' + this.place, threadId);
+            api.sendMessage('Food is at ' + this.place + '.', threadId);
         }
     };
 

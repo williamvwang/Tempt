@@ -1,3 +1,4 @@
 module.exports = {
-        'food': require('./food.js').food
+    'food': require('./food.js').food,
+    'hw': require('./hw.js').hw
 };

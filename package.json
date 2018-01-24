@@ -1,13 +1,13 @@
 {
   "name": "Tempt",
-  "version": "0.0.1",
-  "description": "A Facebook messenger bot for coordinating online gaming",
+  "version": "1.0.2",
+  "description": "A Facebook messenger bot for coordinating social activities",
   "engines": {
     "node": "4.4.5"
   },
   "main": "index.js",
   "scripts": {
-    "start": "node ./public/js/bot.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
