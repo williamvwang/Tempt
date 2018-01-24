@@ -18,44 +18,44 @@ var tempts = {};
 
 // Functions
 
-var addTempt = function(game, api, threadID, senderID) {
+var addTempt = function(game, api, threadId, senderId) {
   // Get user info
-  api.getUserInfo(senderID, function(err, response) {
+  api.getUserInfo(senderId, function(err, response) {
     if (err) {console.log(error);}
 
-    var data = response[senderID.toString()];
+    var data = response[senderId.toString()];
 
     // Tempt level
-    game.addTempt(senderID, new Tempt(senderID, data.name));
+    game.addTempt(senderId, new Tempt(senderId, data.name));
 
     // Generate human readable message
     var toSend = data.name + ' is now tempted for ' + game.name + '.';
 
-    api.sendMessage(toSend, threadID);
+    api.sendMessage(toSend, threadId);
   });
 }
 
-var getTempted = function(game, api, threadID) {
+var getTempted = function(game, api, threadId) {
   var isTempted = game.getTempted();
   if (isTempted.length > 0) {
       var toSend = 'Tempted for ' + game.name + ':\n';
-      api.sendMessage(toSend + formatTempted(isTempted), threadID);
+      api.sendMessage(toSend + formatTempted(isTempted), threadId);
   } else {
-      api.sendMessage('No one is tempted for ' + game.name + ' in this thread.', threadID);
+      api.sendMessage('No one is tempted for ' + game.name + ' in this thread.', threadId);
   }
 }
 
-var deleteTempt = function(game, api, threadID, senderID) {
+var deleteTempt = function(game, api, threadId, senderId) {
   var gameName = game.name;
   var toSend = '';
 
-  var snapshot = game.deleteTempt(senderID);
+  var snapshot = game.deleteTempt(senderId);
   if (snapshot === false) {
     toSend = 'You are not tempted for ' + gameName + '.';
   } else if (snapshot != null) {
     toSend = snapshot.displayName + ' is no longer tempted for ' + gameName + '.';
   }
-  api.sendMessage(toSend, threadID);
+  api.sendMessage(toSend, threadId);
 }
 
 // Exports

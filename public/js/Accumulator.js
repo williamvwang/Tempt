@@ -5,7 +5,7 @@ var exports = module.exports = {};
     gameName: String
     timeCreated: Date,
     lastModified: Date,
-    tempted: { int userID: Tempt }
+    tempted: { int userId: Tempt }
   }
 */
 
@@ -15,35 +15,35 @@ var Accumulator = function(gameName) {
   this.lastModified = this.timeCreated;
   this.tempted = {};
 
-  this.getTempt = function(userID) {
+  this.getTempt = function(userId) {
     this.cleanExpired();
-    return this.tempted[userID];
-    console.log('got tempt for ', userID);
+    return this.tempted[userId];
+    console.log('got tempt for ', userId);
   };
 
-  this.addTempt = function(userID, tempt) {
+  this.addTempt = function(userId, tempt) {
     this.cleanExpired();
-    this.tempted[userID] = tempt;
+    this.tempted[userId] = tempt;
     this.modified();
-    console.log('added tempt for ', userID);
+    console.log('added tempt for ', userId);
   };
 
-  this.deleteTempt = function(userID) {
-    if (this.containsUser(userID)) {
-      var deleted = this.tempted[userID];
-      delete this.tempted[userID];
+  this.deleteTempt = function(userId) {
+    if (this.containsUser(userId)) {
+      var deleted = this.tempted[userId];
+      delete this.tempted[userId];
       this.modified();
-      console.log('deleted tempt for ', userID);
+      console.log('deleted tempt for ', userId);
       return deleted;
     } else {
-      console.log('did not find/delete tempt for', userID);
+      console.log('dId not find/delete tempt for', userId);
       return false;
     }    
   };
 
-  this.containsUser = function(userID) {
+  this.containsUser = function(userId) {
     this.cleanExpired();
-    return this.tempted[userID] != null;
+    return this.tempted[userId] != null;
   };
 
   this.modified = function() {
@@ -52,16 +52,16 @@ var Accumulator = function(gameName) {
 
   this.cleanExpired = function() {
     var toDelete = [];
-    for (var userID in this.tempted) {
-      if (!this.tempted.hasOwnProperty(userID)) continue;
-      if (this.tempted[userID].timeExpires <= Date.now()) {
-        toDelete.push(userID);
+    for (var userId in this.tempted) {
+      if (!this.tempted.hasOwnProperty(userId)) continue;
+      if (this.tempted[userId].timeExpires <= Date.now()) {
+        toDelete.push(userId);
       }
     }
     if (toDelete.length > 0) {
-      toDelete.forEach(function(id) {
-        delete this.tempted[id];
-        console.log('cleaned ' + id + ' for expiry');
+      toDelete.forEach(function(Id) {
+        delete this.tempted[Id];
+        console.log('cleaned ' + Id + ' for expiry');
       }, this); // Make sure to pass `this` context to forEach for parent scope
       this.modified();
     }
@@ -70,9 +70,9 @@ var Accumulator = function(gameName) {
   this.getTempted = function() {
     this.cleanExpired();
     var isTempted = [];
-    for (var userID in this.tempted) {
-      if (!this.tempted.hasOwnProperty(userID)) continue;
-      isTempted.push(this.tempted[userID]);
+    for (var userId in this.tempted) {
+      if (!this.tempted.hasOwnProperty(userId)) continue;
+      isTempted.push(this.tempted[userId]);
     }
     return isTempted;
   }

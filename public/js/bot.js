@@ -107,19 +107,9 @@ function messageHandler(event) {
             
             if (validActivity) {
 			    thread.exec(newGame, cmd, args, userAPI, event.senderID);
-
 			    threads[event.threadID] = thread;
             }
 		}
-		// if ((/^@(\w+) tempted$/).test(message)) {
-		// 	console.log(message);
-		// 	TemptHandler.addTempt(userAPI, event.threadID, message, event.senderID);
-		// } else if ((/^@(\w+) who$/).test(message)) {
-		// 	TemptHandler.getTempted(userAPI, event.threadID, message);
-		// } else if ((/^@(\w+) untempt$/).test(message)) {
-		// 	TemptHandler.deleteTempt(userAPI, event.threadID, message, event.senderID);
-		// }
-		// TODO: add more handlers
 	}
 }
 

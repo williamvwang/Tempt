@@ -4,7 +4,7 @@ var exports = module.exports = {};
 
 /*
   Tempt = {
-    userID: int,
+    userId: int,
     timeCreated: Date,
     timeExpires: Date,
     displayName: String
@@ -13,10 +13,10 @@ var exports = module.exports = {};
 
 // Classes
 
-var Tempt = function(userID, userName) {
+var Tempt = function(userId, userName) {
   this.timeCreated = Date.now();
   this.timeExpires = this.timeCreated + 1 * 60 * 60 * 1000; // 1 hour expiry
-  this.userID = userID;
+  this.userId = userId;
   this.displayName = userName;
   // this.nickname = nickname;
 
