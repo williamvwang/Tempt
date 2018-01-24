@@ -91,7 +91,7 @@ __Arguments__
 __Example__
 
 >`@food at Qdoba`
-* Food is now at Qdoba.
+*Food is now at Qdoba.*
 
 --------------------------------------------------
 <a name="where"/>
@@ -111,9 +111,9 @@ __Arguments__
 __Example__
 
 >`@food at Qdoba`
-* Food is now at Qdoba.
+*Food is now at Qdoba.*
 >`@food where`
-* Food is at Qdoba.
+*Food is at Qdoba.*
 
 --------------------------------------------------
 <a name="about"/>
@@ -136,7 +136,7 @@ __Arguments__
 __Example__
 
 >`@hw about CV`
-* Homework is now about CV.
+*Homework is now about CV.*
 
 --------------------------------------------------
 <a name="what"/>
@@ -158,9 +158,9 @@ __Arguments__
 __Example__
 
 >`@hw about CV`
-* Homework is now about CV.
+*Homework is now about CV.*
 >`@food what`
-* Homework is about CV.
+*Homework is about CV.*
 
 --------------------------------------------------
 <a name="info"/>
@@ -182,8 +182,8 @@ __Arguments__
 __Example__
 
 >`@hw at GDC`
-* Homework is now at GDC.
+*Homework is now at GDC.*
 >`@hw about CV`
-* Homework is now about CV.
+*Homework is now about CV.*
 >`@hw info`
-* Homework about CV is at GDC.
+*Homework about CV is at GDC.*
