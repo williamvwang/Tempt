@@ -176,7 +176,7 @@ __Example__
 --------------------------------------------------
 <a name="info"/>
 
-## @{activity} what
+## @{activity} info
 
 This gives both the subject and place of the activity.
 Only applicable for the following activities:
