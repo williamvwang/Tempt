@@ -36,7 +36,7 @@ var Accumulator = function(gameName) {
       console.log('deleted tempt for ', userId);
       return deleted;
     } else {
-      console.log('dId not find/delete tempt for', userId);
+      console.log('did not find/delete tempt for', userId);
       return false;
     }    
   };
@@ -59,9 +59,9 @@ var Accumulator = function(gameName) {
       }
     }
     if (toDelete.length > 0) {
-      toDelete.forEach(function(Id) {
-        delete this.tempted[Id];
-        console.log('cleaned ' + Id + ' for expiry');
+      toDelete.forEach(function(id) {
+        delete this.tempted[id];
+        console.log('cleaned ' + id + ' for expiry');
       }, this); // Make sure to pass `this` context to forEach for parent scope
       this.modified();
     }
