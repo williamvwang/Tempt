@@ -111,8 +111,11 @@ __Arguments__
 __Example__
 
 >`@food at Qdoba`
+
 *Food is now at Qdoba.*
+
 >`@food where`
+
 *Food is at Qdoba.*
 
 --------------------------------------------------
@@ -136,6 +139,7 @@ __Arguments__
 __Example__
 
 >`@hw about CV`
+
 *Homework is now about CV.*
 
 --------------------------------------------------
@@ -158,8 +162,11 @@ __Arguments__
 __Example__
 
 >`@hw about CV`
+
 *Homework is now about CV.*
+
 >`@food what`
+
 *Homework is about CV.*
 
 --------------------------------------------------
@@ -182,8 +189,13 @@ __Arguments__
 __Example__
 
 >`@hw at GDC`
+
 *Homework is now at GDC.*
+
 >`@hw about CV`
+
 *Homework is now about CV.*
+
 >`@hw info`
+
 *Homework about CV is at GDC.*
