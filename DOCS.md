@@ -3,6 +3,10 @@
 * [`untempt`](#untempt)
 * [`who`](#who)
 * [`at (place)`](#at)
+* [`where`](#where)
+* [`about (subject)`](#about)
+* [`what`](#what)
+* [`info`](#info)
 
 --------------------------------------------------
 <a name="tempted"/>
