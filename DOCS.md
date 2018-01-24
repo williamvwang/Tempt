@@ -165,7 +165,7 @@ __Example__
 
 *Homework is now about CV.*
 
->`@food what`
+>`@hw what`
 
 *Homework is about CV.*
 
