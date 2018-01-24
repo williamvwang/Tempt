@@ -44,6 +44,7 @@ if (process.env.USE_CLI === 'true') {
 		);
 	});
 } else {
+	// Use environment variables to login
 	email = process.env.BOT_EMAIL;
 	login({email: process.env.BOT_EMAIL, password: process.env.BOT_PASSWORD},
 		{selfListen: true},

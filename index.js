@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 var express = require('express');
 var app = express();
 
@@ -9,4 +11,4 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-require('./public/javascript/bot.js');
+require('./public/js/bot.js');

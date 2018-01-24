@@ -10,13 +10,14 @@
     "start": "node ./public/js/bot.js"
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "express": "^4.14.0",
-    "facebook-chat-api": "^1.1.0",
+    "facebook-chat-api": "^1.4.0",
     "prompt": "^1.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/renxinhe/facebook-chat-bot"
+    "url": "https://github.com/williamvwang/Tempt"
   },
   "keywords": [
     "node",
