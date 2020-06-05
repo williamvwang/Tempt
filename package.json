@@ -1,7 +1,7 @@
 {
   "name": "tempt",
   "version": "2.0.0",
-  "description": "A Facebook messenger bot for coordinating social activities",
+  "description": "A Facebook Messenger bot for coordinating social activities",
   "engines": {
     "node": "12.x.x"
   },
